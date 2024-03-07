@@ -1,79 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-mask-polka dark">
   <head>
-    <style>  
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Abhay Mahendera - Portfolio">
+    <meta property="og:url" content="server listening on: 8080">
+    <meta property="og:image" content="/assets/thumbnail.jpeg">
+    <meta property="og:description" content="Personal website containing a detailed description of past experience, skills, projects, a copy of the resume, social media links etc." />
     
-    
-    /*
-Had to move it to internal css because vercel had some issues deploying it otherwise.
-    */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.scroll-line {
-    background: #4f4557;
-    display: block;
-    left: 0;
-    height: 6px;
-    margin-top: 4rem;
-    position: fixed;
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.dark-bg {
-    background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
-}
-
-.bg-mask-polka {
-    background-color: #282535;
-    opacity: 1;
-    background-image: radial-gradient(#4f4557 1.3px, transparent 1.3px),
-        radial-gradient(#4f4557 1.3px, #282535 1.3px);
-    background-size: 52px 52px;
-    background-position: 0 0, 26px 26px;
-}
-
-.stat {
-    background-color: #1F232D;
-}
-
-.stats{
-    background-color: transparent;
-    grid-gap: 2px;
-}
-
-.stat-title{
-    color: #6B7080;
-}
-
-.mockup-code{
-    background-color: #1F232D;
-}
-
-.text-primary{
-    color: #4A00F0;
-}
-
-.text-secondary{
-    color: #ff00d3;
-}
-
-.navbar::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    backdrop-filter: blur(4px);
-    z-index: -1;
-}
-
-.text-primary{
-    color: #6b00e0;
-}
+    <title>Abhay Mahendera - Portfolio </title>
+   
+    <style>
       /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
@@ -3629,19 +3569,6 @@ html {
 }
     </style>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Abhay Mahendera - Portfolio">
-    <meta property="og:url" content="server listening on: 8080">
-    <meta property="og:image" content="/assets/thumbnail.jpeg">
-    <meta property="og:description" content="Personal website containing a detailed description of past experience, skills, projects, a copy of the resume, social media links etc." />
-    
-    <title>Abhay Mahendera - Portfolio </title>
-    
-    <link rel="stylesheet" href="/css/main.css" />
-
   </head>
   <body>
 
@@ -3771,8 +3698,21 @@ html {
         </div>
     </footer>
 
-    <script src="/js/typewrite.js"></script>
-    <script src="/js/navscroll.js"></script>
+    <script>
+      const scrollline = document.querySelector(".scroll-line");
+
+function fillscrollline() {
+  const windowHeight = window.innerHeight;
+  const fullHeight = document.body.clientHeight;
+  const scrolled = window.scrollY;
+  const percentScrolled = (scrolled / (fullHeight - windowHeight)) * 100;
+
+  scrollline.style.width = percentScrolled + "%";
+}
+
+window.addEventListener("scroll", fillscrollline);
+
+    </script>
 
   </body>
   </html>
