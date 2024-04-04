@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
 
+import { Analytics } from "@vercel/analytics/react"
+
 app.use(express.static('public'));
 app.use(express.static('src'));
 //app.use('/public', express.static(path.join(__dirname, "public")));
